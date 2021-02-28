@@ -24,4 +24,7 @@
     <Folder Include="Domain\" />
     <Folder Include="Infraestructure\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Delivery\Delivery.csproj" />
+  </ItemGroup>
 </Project>
