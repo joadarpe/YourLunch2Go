@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Delivery.Domain.Services;
+using Delivery.Domain.Model;
 
 namespace Delivery.Infraestructure.Services
 {
@@ -12,11 +13,19 @@ namespace Delivery.Infraestructure.Services
 
     public class DroneDeliveryService : IDroneDeliveryService
     {
+        readonly IDeliverySettings _deliverySettings;
+
+        public DroneDeliveryService(IDeliverySettings deliverySettings)
+        {
+            _deliverySettings = deliverySettings;
+        }
+
         public void DeliverOrders(string inFilePath, string outFilePath)
         {
-            var filesInfo = Directory.GetFiles(inFilePath, "in*.txt").Select(fn => new FileInfo(fn)).ToList();
+            var filesInfo = Directory.GetFiles(inFilePath, "in*.txt").Select(fn => new FileInfo(fn))
+                .Take(_deliverySettings.MaxDroneCount).ToList();
 
-            IDroneService droneService = new DroneService();
+            IDroneService droneService = new DroneService(_deliverySettings);
 
             filesInfo.ForEach(fi => DeliverOrdersForFile(droneService, fi));
         }
@@ -29,12 +38,9 @@ namespace Delivery.Infraestructure.Services
 
         private static uint GetDroneIdFromFileName(string fileName)
         {
-            if (string.IsNullOrEmpty(fileName))
-                throw new ArgumentException("");
-
             if (uint.TryParse(fileName.Substring(2, 2), out uint id))
                 return id;
-            throw new ArgumentException("");
+            throw new ArgumentException("Unsupported filename");
         }
     }
 }

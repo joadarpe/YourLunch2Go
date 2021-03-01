@@ -10,7 +10,7 @@ namespace Delivery.Domain.Model
         IPossition Possition { get; }
 
         IDrone Execute(ICommand command);
-        IDrone Deliver(IRoute commandList);
+        IDrone Deliver(IRoute route);
     }
 
     public class Drone : IDrone

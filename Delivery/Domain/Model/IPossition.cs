@@ -18,7 +18,7 @@ namespace Delivery.Domain.Model
 
         public override string ToString()
         {
-            return $"({Xaxis}, {Yaxis}) {Orientation.Value}";
+            return $"({Xaxis}, {Yaxis}) Ahead {Orientation.Name}";
         }
 
         public static IPossition Create(int xAxis, int yAxis, CardinalPoint orientation) => new Possition()

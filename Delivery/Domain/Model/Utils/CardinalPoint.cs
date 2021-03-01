@@ -9,11 +9,12 @@ namespace Delivery.Domain.Model.Utils
         public const char S = 'S';
         public const char W = 'W';
 
-        public static readonly CardinalPoint NORTH = Create(N, W, E);
-        public static readonly CardinalPoint EAST = Create(E, N, S);
-        public static readonly CardinalPoint SOUTH = Create(S, E, W);
-        public static readonly CardinalPoint WEST = Create(W, S, N);
+        public static readonly CardinalPoint NORTH = Create("North", N, W, E);
+        public static readonly CardinalPoint EAST = Create("East", E, N, S);
+        public static readonly CardinalPoint SOUTH = Create("South", S, E, W);
+        public static readonly CardinalPoint WEST = Create("West", W, S, N);
 
+        public string Name { get; private set; }
         public char Value { get; private set; }
         public char Left { get; private set; }
         public char Right { get; private set; }
@@ -30,7 +31,7 @@ namespace Delivery.Domain.Model.Utils
             };
         }
 
-        private static CardinalPoint Create(char p, char l, char r)
-            => new CardinalPoint() { Value = p, Left = l, Right = r };
+        private static CardinalPoint Create(string name, char p, char l, char r)
+            => new CardinalPoint() { Name = name, Value = p, Left = l, Right = r };
     }
 }

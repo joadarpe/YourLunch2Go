@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Delivery.Domain.Model;
 using Delivery.Domain.Services;
 using Xunit;
 
@@ -12,9 +13,9 @@ namespace Delivery.Tests.Domain.Services
         public void ShouldReturnDronePossitionFromCommandList_AsDocummented()
         {
             uint droneId = 1;
-            var droneService = new DroneService();
+            var droneService = new DroneService(DeliverySettings.Create());
             var commandList = new List<string> { "AAAAIAA", "DDDAIAD", "AAIADAD" };
-            var expectedList = new List<string> { "(-2, 4) N", "(-3, 3) S", "(-4, 2) E" };
+            var expectedList = new List<string> { DroneService.OUTFILE_HEADER, "(-2, 4) Ahead North", "(-3, 3) Ahead South", "(-4, 2) Ahead East" };
 
             DeliverOrdersAndAssert(droneService, droneId, commandList, expectedList);
         }
@@ -23,12 +24,33 @@ namespace Delivery.Tests.Domain.Services
         public void ShouldReturnDronePossitionFromCommandList_AsUnderstood()
         {
             uint droneId = 1;
-            var droneService = new DroneService();
+            var droneService = new DroneService(DeliverySettings.Create());
             var commandList = new List<string> { "AAAAIAA", "DDDAIAD", "AAIADAD" };
-            var expectedList = new List<string> { "(-2, 4) W", "(-1, 3) S", "(0, 0) W" };
+            var expectedList = new List<string> { DroneService.OUTFILE_HEADER, "(-2, 4) Ahead West", "(-1, 3) Ahead South", "(0, 0) Ahead West" };
 
             DeliverOrdersAndAssert(droneService, droneId, commandList, expectedList);
+        }
 
+        [Fact]
+        public void ShouldNotDeliverMoreThanThreeOrders()
+        {
+            uint droneId = 1;
+            var droneService = new DroneService(DeliverySettings.Create());
+            var commandList = new List<string> { "AAAAIAA", "DDDAIAD", "AAIADAD", "IGNORED" };
+            var expectedList = new List<string> { DroneService.OUTFILE_HEADER, "(-2, 4) Ahead West", "(-1, 3) Ahead South", "(0, 0) Ahead West" };
+
+            DeliverOrdersAndAssert(droneService, droneId, commandList, expectedList);
+        }
+
+        [Fact]
+        public void ShouldNotDeliverMoreThanTenBlocks()
+        {
+            uint droneId = 1;
+            var droneService = new DroneService(DeliverySettings.Create(blocksToDeliver: 10));
+            var commandList = new List<string> { "AAAAAAAAAAA", "AAAIAAA", "IAAAIAAA" };
+            var expectedList = new List<string> { DroneService.OUTFILE_HEADER, "(0, 0) Ahead North", "(-3, 3) Ahead West", "(0, 0) Ahead East" };
+
+            DeliverOrdersAndAssert(droneService, droneId, commandList, expectedList);
         }
 
         private static void DeliverOrdersAndAssert(IDroneService droneService,

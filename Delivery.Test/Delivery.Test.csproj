@@ -39,5 +39,11 @@
     <None Update="Infraestructure\Services\Resources\expected-out01.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Infraestructure\Services\Resources\in01 %28copia%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Infraestructure\Services\Resources\expected-out01 %28copia%29.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
