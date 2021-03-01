@@ -33,16 +33,13 @@
     <None Update="Infraestructure\Services\Resources\in01.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Infraestructure\Services\Resources\out01.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="Infraestructure\Services\Resources\expected-out01.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Infraestructure\Services\Resources\in01 %28copia%29.txt">
+    <None Update="Infraestructure\Services\Resources\in02.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Infraestructure\Services\Resources\expected-out01 %28copia%29.txt">
+    <None Update="Infraestructure\Services\Resources\expected-out02.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
