@@ -7,7 +7,7 @@ namespace Delivery.Domain.Model
     {
         uint Id { get; }
         string Alias { get; }
-        IPossition Possition { get; }
+        IPosition Position { get; }
 
         IDrone Execute(ICommand command);
         IDrone Deliver(IRoute route);
@@ -17,9 +17,9 @@ namespace Delivery.Domain.Model
     {
         public uint Id { get; private set; }
         public string Alias { get; private set; }
-        public IPossition Possition { get; private set; }
+        public IPosition Position { get; private set; }
 
-        private static readonly IPossition DEFAULT = Model.Possition.Create(0, 0, CardinalPoint.NORTH);
+        private static readonly IPosition DEFAULT = Model.Position.Create(0, 0, CardinalPoint.NORTH);
 
         public static IDrone Create(uint id)
         {
@@ -27,17 +27,17 @@ namespace Delivery.Domain.Model
             {
                 Id = id,
                 Alias = $"ULTG_{id}",
-                Possition = DEFAULT
+                Position = DEFAULT
             };
         }
 
-        public static IDrone Create(uint id, string alias, IPossition possition)
+        public static IDrone Create(uint id, string alias, IPosition position)
         {
             return new Drone()
             {
                 Id = id,
                 Alias = alias,
-                Possition = possition
+                Position = position
             };
         }
 

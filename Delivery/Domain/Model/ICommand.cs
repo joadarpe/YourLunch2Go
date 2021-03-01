@@ -42,13 +42,13 @@ namespace Delivery.Domain.Model
 
         public IDrone Execute(IDrone drone)
         {
-            var p = drone.Possition;
+            var p = drone.Position;
             var newP = p.Orientation.Value switch
             {
-                CardinalPoint.N => Possition.Create(p.Xaxis, p.Yaxis + STEPS, p.Orientation),
-                CardinalPoint.E => Possition.Create(p.Xaxis + STEPS, p.Yaxis, p.Orientation),
-                CardinalPoint.S => Possition.Create(p.Xaxis, p.Yaxis - STEPS, p.Orientation),
-                CardinalPoint.W => Possition.Create(p.Xaxis - STEPS, p.Yaxis, p.Orientation),
+                CardinalPoint.N => Position.Create(p.Xaxis, p.Yaxis + STEPS, p.Orientation),
+                CardinalPoint.E => Position.Create(p.Xaxis + STEPS, p.Yaxis, p.Orientation),
+                CardinalPoint.S => Position.Create(p.Xaxis, p.Yaxis - STEPS, p.Orientation),
+                CardinalPoint.W => Position.Create(p.Xaxis - STEPS, p.Yaxis, p.Orientation),
                 _ => p
             };
             return Drone.Create(drone.Id, drone.Alias, newP);
@@ -60,8 +60,8 @@ namespace Delivery.Domain.Model
     {
         public IDrone Execute(IDrone drone)
         {
-            var p = drone.Possition;
-            var newP = Possition.Create(p.Xaxis, p.Yaxis, CardinalPoint.FromPoint(p.Orientation.Right));
+            var p = drone.Position;
+            var newP = Position.Create(p.Xaxis, p.Yaxis, CardinalPoint.FromPoint(p.Orientation.Right));
             return Drone.Create(drone.Id, drone.Alias, newP);
         }
     }
@@ -70,8 +70,8 @@ namespace Delivery.Domain.Model
     {
         public IDrone Execute(IDrone drone)
         {
-            var p = drone.Possition;
-            var newP = Possition.Create(p.Xaxis, p.Yaxis, CardinalPoint.FromPoint(p.Orientation.Left));
+            var p = drone.Position;
+            var newP = Position.Create(p.Xaxis, p.Yaxis, CardinalPoint.FromPoint(p.Orientation.Left));
             return Drone.Create(drone.Id, drone.Alias, newP);
         }
     }

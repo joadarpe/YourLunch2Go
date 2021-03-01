@@ -10,7 +10,7 @@ namespace Delivery.Tests.Domain.Services
     {
 
         [Fact(Skip = "This was what the document said about inputs and outputs but it does not work")]
-        public void ShouldReturnDronePossitionFromCommandList_AsDocummented()
+        public void ShouldReturnDronePositionFromCommandList_AsDocummented()
         {
             uint droneId = 1;
             var droneService = new DroneService(DeliverySettings.Create());
@@ -21,7 +21,7 @@ namespace Delivery.Tests.Domain.Services
         }
 
         [Fact]
-        public void ShouldReturnDronePossitionFromCommandList_AsUnderstood()
+        public void ShouldReturnDronePositionFromCommandList_AsUnderstood()
         {
             uint droneId = 1;
             var droneService = new DroneService(DeliverySettings.Create());

@@ -27,22 +27,22 @@ namespace Delivery.Domain.Services
             var routePlan = routes.Select(r => Route.FromString(r)).Take(_deliverySettings.MaxOrdersByDrone);
 
             return routePlan.Select(r => drone = DeliverOrder(_deliverySettings, drone, r))
-                .Select(d => d.Possition.ToString()).Prepend(OUTFILE_HEADER);
+                .Select(d => d.Position.ToString()).Prepend(OUTFILE_HEADER);
         }
 
         private static IDrone DeliverOrder(IDeliverySettings deliverySettings, IDrone drone, IRoute route)
         {
             var baseDrone = drone;
             var newDrone = drone.Deliver(route);
-            if (IsOutOfReach(deliverySettings, newDrone.Possition))
+            if (IsOutOfReach(deliverySettings, newDrone.Position))
                 return baseDrone;
             return newDrone;
         }
 
-        private static bool IsOutOfReach(IDeliverySettings deliverySettings, IPossition possition)
+        private static bool IsOutOfReach(IDeliverySettings deliverySettings, IPosition position)
         {
-            return deliverySettings.MaxBlocksToDeliver < System.Math.Abs(possition.Xaxis)
-                || deliverySettings.MaxBlocksToDeliver < System.Math.Abs(possition.Yaxis);
+            return deliverySettings.MaxBlocksToDeliver < System.Math.Abs(position.Xaxis)
+                || deliverySettings.MaxBlocksToDeliver < System.Math.Abs(position.Yaxis);
         }
     }
 

@@ -2,14 +2,14 @@
 
 namespace Delivery.Domain.Model
 {
-    public interface IPossition
+    public interface IPosition
     {
         int Xaxis { get; }
         int Yaxis { get; }
         CardinalPoint Orientation { get; }
     }
 
-    public class Possition : IPossition
+    public class Position : IPosition
     {
 
         public int Xaxis { get; private set; }
@@ -21,7 +21,7 @@ namespace Delivery.Domain.Model
             return $"({Xaxis}, {Yaxis}) Ahead {Orientation.Name}";
         }
 
-        public static IPossition Create(int xAxis, int yAxis, CardinalPoint orientation) => new Possition()
+        public static IPosition Create(int xAxis, int yAxis, CardinalPoint orientation) => new Position()
         {
             Xaxis = xAxis,
             Yaxis = yAxis,
