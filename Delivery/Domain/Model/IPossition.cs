@@ -1,5 +1,4 @@
-﻿using System;
-using Delivery.Domain.Model.Utils;
+﻿using Delivery.Domain.Model.Utils;
 
 namespace Delivery.Domain.Model
 {

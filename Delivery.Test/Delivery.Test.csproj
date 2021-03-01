@@ -23,8 +23,21 @@
     <Folder Include="Application\" />
     <Folder Include="Domain\" />
     <Folder Include="Infraestructure\" />
+    <Folder Include="Infraestructure\Services\" />
+    <Folder Include="Infraestructure\Services\Resources\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Delivery\Delivery.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Infraestructure\Services\Resources\in01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Infraestructure\Services\Resources\out01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Infraestructure\Services\Resources\expected-out01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

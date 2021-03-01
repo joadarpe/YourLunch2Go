@@ -8,5 +8,6 @@
     <Folder Include="Application\" />
     <Folder Include="Domain\" />
     <Folder Include="Infraestructure\" />
+    <Folder Include="Infraestructure\Services\" />
   </ItemGroup>
 </Project>
