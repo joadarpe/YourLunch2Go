@@ -27,7 +27,7 @@ namespace Delivery.Infraestructure.Services
 
             IDroneService droneService = new DroneService(_deliverySettings);
 
-            filesInfo.ForEach(fi => DeliverOrdersForFile(droneService, fi));
+            filesInfo.AsParallel().ForAll(fi => DeliverOrdersForFile(droneService, fi));
         }
 
         private static void DeliverOrdersForFile(IDroneService dS, FileInfo fI)
