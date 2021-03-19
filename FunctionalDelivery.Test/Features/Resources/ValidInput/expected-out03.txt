@@ -1,0 +1,4 @@
+﻿== Delivery report ==
+(0, 10) Ahead East
+(6, 10) Ahead East
+(0, 10) Ahead West

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery", "Delivery\Delive
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delivery.Test", "Delivery.Test\Delivery.Test.csproj", "{AE7B382E-4621-41F8-BD24-76E12EA4F77C}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FunctionalDelivery.Test", "FunctionalDelivery.Test\FunctionalDelivery.Test.fsproj", "{03BC06F3-FBFD-4C10-9AB0-00C5C5AD9D09}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FunctionalDelivery", "ClassLibrarySample\FunctionalDelivery.fsproj", "{BF55B99B-F872-4D55-BEC2-2B2F8595BC64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{AE7B382E-4621-41F8-BD24-76E12EA4F77C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE7B382E-4621-41F8-BD24-76E12EA4F77C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE7B382E-4621-41F8-BD24-76E12EA4F77C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03BC06F3-FBFD-4C10-9AB0-00C5C5AD9D09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03BC06F3-FBFD-4C10-9AB0-00C5C5AD9D09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03BC06F3-FBFD-4C10-9AB0-00C5C5AD9D09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03BC06F3-FBFD-4C10-9AB0-00C5C5AD9D09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF55B99B-F872-4D55-BEC2-2B2F8595BC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF55B99B-F872-4D55-BEC2-2B2F8595BC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF55B99B-F872-4D55-BEC2-2B2F8595BC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF55B99B-F872-4D55-BEC2-2B2F8595BC64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

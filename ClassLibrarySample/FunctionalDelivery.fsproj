@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\" />
+    <Folder Include="Domain\Services\" />
+    <Folder Include="Domain\Model\" />
+    <Folder Include="Infraestructure\" />
+    <Folder Include="Infraestructure\Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\Model\Position.fs" />
+    <Compile Include="Domain\Model\Drone.fs" />
+    <Compile Include="Domain\Services\DroneService.fs" />
+    <Compile Include="Infraestructure\Services\DroneDeliveryService.fs" />
+  </ItemGroup>
+</Project>
